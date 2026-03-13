@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="de2c86c5-cb51-4c41-b025-9b0d0011836f" name="Changes" comment="Removed commented codes">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773394657086.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773394665590.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773394673322.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/ExtentReport.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/ExtentReport.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/automation/utils/MobileActions.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/automation/utils/MobileActions.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/cucumber-report.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/cucumber-report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773363913692.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773363918810.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773363923985.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773364040190.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773364045343.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773364050378.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773364548869.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773364553977.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773372417266.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773372422605.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773372427959.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773382141121.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/Verify user can search product and validate checkout behavior and remove product_1773382148653.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/embedded1.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/screenshots/embedded1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/embedded2.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/screenshots/embedded2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/screenshots/embedded3.png" beforeDir="false" afterPath="$PROJECT_DIR$/target/screenshots/embedded3.png" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;swetarani604&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/swetarani604/mobile-java-framework.git&quot;,
+    &quot;accountId&quot;: &quot;9ba08232-dfee-4c11-a4dd-342a06bd52c1&quot;
+  }
+}</component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="3Aq8V2JKjX5NDf8KX6U1QFvdLbF" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;TestNG.TestRunner.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Sweta Rani/IdeaProjects/ecommerceApp/mobile-bdd-framework/src/test&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/Sweta Rani/IdeaProjects/ecommerceApp/mobile-bdd-framework/src/main/java/com/automation/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.18045977&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Sweta Rani\IdeaProjects\ecommerceApp\mobile-bdd-framework\src\test" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestRunner" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="mobile-bdd-framework" />
+      <shortenClasspath name="NONE" />
+      <useClassPathOnly />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.automation.runner.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH" value="11" />
+      <option name="SUITE_NAME" value="" />
+      <option name="PACKAGE_NAME" value="com.automation.runner" />
+      <option name="MAIN_CLASS_NAME" value="com.automation.runner.TestRunner" />
+      <option name="GROUP_NAME" value="" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" value="-ea -Dplatform=android" />
+      <option name="PARAMETERS" value="" />
+      <option name="OUTPUT_DIRECTORY" value="" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <option name="PROPERTIES_FILE" value="" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="TestNG.TestRunner" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="de2c86c5-cb51-4c41-b025-9b0d0011836f" name="Changes" comment="" />
+      <created>1773308763548</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1773308763548</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Removed commented codes">
+      <option name="closed" value="true" />
+      <created>1773389033166</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1773389033167</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Removed commented codes">
+      <option name="closed" value="true" />
+      <created>1773389093767</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1773389093767</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Removed commented codes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed commented codes" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
