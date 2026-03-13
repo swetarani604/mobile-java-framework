@@ -4,27 +4,31 @@ import com.automation.driver.DriverManager;
 import com.automation.utils.MobileActions;
 import io.appium.java_client.AppiumDriver;
 import com.automation.pageElements.HomeElement;
+import io.appium.java_client.pagefactory.AppiumFieldDecorator;
+import org.openqa.selenium.support.PageFactory;
 
 public class HomePage{
     MobileActions actions;
+    HomeElement homeelement;
 
     public HomePage(AppiumDriver driver){
-         //this.driver = DriverManager.getDriver();
+
         actions = new MobileActions(driver);
+        homeelement = new HomeElement(driver);
     }
 
     public void verifyHomeScreen() {
-        actions.assertElementVisible(HomeElement.bannerSectionAtTop);
+        actions.assertElementVisible(homeelement.bannerSectionAtTop);
     }
 
     public void searchProduct(String product) {
-        actions.clickElement(HomeElement.searchBar);
-        actions.enterText(HomeElement.searchBar,product);
-        //actions.clickElement(HomeElement.productName);
+        actions.clickElement(homeelement.searchBar);
+        actions.enterText(homeelement.searchBar,product);
+
     }
 
     public void selectSearchSuggestion(String product) {
-        actions.clickElementFromListByText(HomeElement.relatedProductList,product);
+        actions.clickElementFromListByText(homeelement.relatedProductList,product);
 
     }
 }

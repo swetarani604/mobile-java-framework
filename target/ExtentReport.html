@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary">Albertsons Automation Execution</span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Mar 13, 2026 06:47:59 am</span></a>
+<a href="#"><span class="badge badge-primary">Mar 13, 2026 01:27:46 pm</span></a>
 </li>
 </ul>
 </div>
@@ -97,7 +97,7 @@
           <div class="test-detail">
             <p class="name">Product search and checkout validation in Albertsons mobile application</p>
             <p class="text-sm">
-              <span>6:47:59 am</span> / <span>00:00:00:517</span>
+              <span>1:27:46 pm</span> / <span>00:00:18:710</span>
               <span class="badge fail-bg log float-right">Fail</span>
             </p>
           </div>
@@ -106,9 +106,9 @@
 <div class="p-v-10">
 <div class="info">
 <h5 class="test-status text-fail">Product search and checkout validation in Albertsons mobile application</h5>
-<span class='badge badge-success'>03.13.2026 6:47:59 am</span>
-<span class='badge badge-danger'>03.13.2026 6:48:00 am</span>
-<span class='badge badge-default'>00:00:00:517</span>
+<span class='badge badge-success'>03.13.2026 1:27:46 pm</span>
+<span class='badge badge-danger'>03.13.2026 1:28:05 pm</span>
+<span class='badge badge-default'>00:00:18:710</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 <span class='badge badge-default pointer float-right ml-1 et'><i class="fa fa-chevron-down"></i></span>
 <span class='badge badge-default pointer float-right ct'><i class="fa fa-chevron-up"></i></span>
@@ -121,6 +121,9 @@
     <div class="card-header" role="tab">
       <div class="card-title">
         <div class="node" id="2"><span class="badge log fail-bg mr-2">Fail</span>Verify user can search product and validate checkout behavior and remove product</div>
+          <div class="status-avatar float-right mr-4">
+            <i class="fa fa-paperclip"></i>
+          </div>
       </div>
     </div>
         <div class="scenario_outline ">
@@ -128,6 +131,9 @@
               <div class="card-header">
                 <div class="card-title outline-child">
                   <div class="node" id="3"><span class="badge log fail-bg mr-2">Fail</span>Verify user can search product and validate checkout behavior and remove product</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
                 </div>
               </div>
               <div class="card-body mt-3 ">
@@ -188,15 +194,28 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
 	at io.cucumber.core.backend.DefaultObjectFactory.cacheNewInstance(DefaultObjectFactory.java:53)
 	... 44 more
-Caused by: java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:208)
-	at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:106)
-	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:85)
-	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:45)
-	at com.automation.utils.MobileActions.<init>(MobileActions.java:24)
-	at com.automation.pages.HomePage.<init>(HomePage.java:13)
+Caused by: java.lang.RuntimeException: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy25.proxyClassLookup()
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:85)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:170)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:204)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
+	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
+	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:154)
+	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
+	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
+	at com.automation.pageElements.HomeElement.<init>(HomeElement.java:14)
+	at com.automation.pages.HomePage.<init>(HomePage.java:17)
 	at com.automation.stepdefinitions.SearchSteps.<init>(SearchSteps.java:28)
 	... 50 more
+Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy25.proxyClassLookup()
+	at java.base/java.lang.Class.getMethod(Class.java:2227)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:83)
+	... 65 more
 </textarea>
       
       </div>
@@ -293,8 +312,12 @@ Caused by: java.lang.NullPointerException
                   </div>
                   <div class="step pass-bg">
                     <span>com.automation.cucumberHook.Hooks.afterScenario(io.cucumber.java.Scenario)</span>
-      <div>Screenshot capture failed: null
-      </div>
+      <div>Failure Screenshot
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../screenshots/embedded1.png' src="../screenshots/embedded1.png">
+    
+    </div></div>
+</div>
       <div>
       </div>
                   </div>
@@ -304,6 +327,9 @@ Caused by: java.lang.NullPointerException
               <div class="card-header">
                 <div class="card-title outline-child">
                   <div class="node" id="25"><span class="badge log fail-bg mr-2">Fail</span>Verify user can search product and validate checkout behavior and remove product</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
                 </div>
               </div>
               <div class="card-body mt-3 ">
@@ -364,15 +390,28 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
 	at io.cucumber.core.backend.DefaultObjectFactory.cacheNewInstance(DefaultObjectFactory.java:53)
 	... 44 more
-Caused by: java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:208)
-	at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:106)
-	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:85)
-	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:45)
-	at com.automation.utils.MobileActions.<init>(MobileActions.java:24)
-	at com.automation.pages.HomePage.<init>(HomePage.java:13)
+Caused by: java.lang.RuntimeException: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy25.proxyClassLookup()
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:85)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:170)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:204)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
+	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
+	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:154)
+	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
+	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
+	at com.automation.pageElements.HomeElement.<init>(HomeElement.java:14)
+	at com.automation.pages.HomePage.<init>(HomePage.java:17)
 	at com.automation.stepdefinitions.SearchSteps.<init>(SearchSteps.java:28)
 	... 50 more
+Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy25.proxyClassLookup()
+	at java.base/java.lang.Class.getMethod(Class.java:2227)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:83)
+	... 65 more
 </textarea>
       
       </div>
@@ -469,8 +508,12 @@ Caused by: java.lang.NullPointerException
                   </div>
                   <div class="step pass-bg">
                     <span>com.automation.cucumberHook.Hooks.afterScenario(io.cucumber.java.Scenario)</span>
-      <div>Screenshot capture failed: null
-      </div>
+      <div>Failure Screenshot
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../screenshots/embedded2.png' src="../screenshots/embedded2.png">
+    
+    </div></div>
+</div>
       <div>
       </div>
                   </div>
@@ -480,6 +523,9 @@ Caused by: java.lang.NullPointerException
               <div class="card-header">
                 <div class="card-title outline-child">
                   <div class="node" id="47"><span class="badge log fail-bg mr-2">Fail</span>Verify user can search product and validate checkout behavior and remove product</div>
+                    <div class="status-avatar float-right">
+                      <i class="fa fa-paperclip"></i>
+                    </div>
                 </div>
               </div>
               <div class="card-body mt-3 ">
@@ -540,15 +586,28 @@ Caused by: java.lang.reflect.InvocationTargetException
 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480)
 	at io.cucumber.core.backend.DefaultObjectFactory.cacheNewInstance(DefaultObjectFactory.java:53)
 	... 44 more
-Caused by: java.lang.NullPointerException
-	at java.base/java.util.Objects.requireNonNull(Objects.java:208)
-	at org.openqa.selenium.support.ui.FluentWait.<init>(FluentWait.java:106)
-	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:85)
-	at org.openqa.selenium.support.ui.WebDriverWait.<init>(WebDriverWait.java:45)
-	at com.automation.utils.MobileActions.<init>(MobileActions.java:24)
-	at com.automation.pages.HomePage.<init>(HomePage.java:13)
+Caused by: java.lang.RuntimeException: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy25.proxyClassLookup()
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:85)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.getFilledValue(AppiumByBuilder.java:92)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.createBy(AppiumByBuilder.java:148)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.getBys(DefaultElementByBuilder.java:133)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildMobileNativeBy(DefaultElementByBuilder.java:170)
+	at io.appium.java_client.pagefactory.DefaultElementByBuilder.buildBy(DefaultElementByBuilder.java:204)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:66)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:53)
+	at io.appium.java_client.pagefactory.AppiumElementLocatorFactory.createLocator(AppiumElementLocatorFactory.java:1)
+	at org.openqa.selenium.support.pagefactory.DefaultFieldDecorator.decorate(DefaultFieldDecorator.java:56)
+	at io.appium.java_client.pagefactory.AppiumFieldDecorator.decorate(AppiumFieldDecorator.java:154)
+	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:113)
+	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
+	at com.automation.pageElements.HomeElement.<init>(HomeElement.java:14)
+	at com.automation.pages.HomePage.<init>(HomePage.java:17)
 	at com.automation.stepdefinitions.SearchSteps.<init>(SearchSteps.java:28)
 	... 50 more
+Caused by: java.lang.NoSuchMethodException: jdk.proxy2.$Proxy25.proxyClassLookup()
+	at java.base/java.lang.Class.getMethod(Class.java:2227)
+	at io.appium.java_client.pagefactory.bys.builder.AppiumByBuilder.prepareAnnotationMethods(AppiumByBuilder.java:83)
+	... 65 more
 </textarea>
       
       </div>
@@ -645,8 +704,12 @@ Caused by: java.lang.NullPointerException
                   </div>
                   <div class="step pass-bg">
                     <span>com.automation.cucumberHook.Hooks.afterScenario(io.cucumber.java.Scenario)</span>
-      <div>Screenshot capture failed: null
-      </div>
+      <div>Failure Screenshot
+          <div class="row mb-3"><div class="col-md-3">
+<img data-featherlight='../screenshots/embedded3.png' src="../screenshots/embedded3.png">
+    
+    </div></div>
+</div>
       <div>
       </div>
                   </div>
@@ -698,7 +761,7 @@ Caused by: java.lang.NullPointerException
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>06:48:00 am</td>
+<td>13:27:53 pm</td>
 <td>
 <a href="#" class="linked" test-id='1' id='5'>Given the user lands on the home screen with search functionality available</a>
 <div class="">
@@ -708,7 +771,7 @@ Caused by: java.lang.NullPointerException
 </tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>06:48:00 am</td>
+<td>13:27:58 pm</td>
 <td>
 <a href="#" class="linked" test-id='1' id='27'>Given the user lands on the home screen with search functionality available</a>
 <div class="">
@@ -718,7 +781,7 @@ Caused by: java.lang.NullPointerException
 </tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>06:48:00 am</td>
+<td>13:28:04 pm</td>
 <td>
 <a href="#" class="linked" test-id='1' id='49'>Given the user lands on the home screen with search functionality available</a>
 <div class="">
@@ -770,7 +833,7 @@ Caused by: java.lang.NullPointerException
 <tbody>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>06:47:59 am</td>
+<td>13:27:46 pm</td>
 <td>
 <a href="#" class="linked" test-id='1' id='2'>Verify user can search product and validate checkout behavior and remove product</a>
 <div class="">
@@ -780,7 +843,7 @@ Caused by: java.lang.NullPointerException
 </tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>06:47:59 am</td>
+<td>13:27:46 pm</td>
 <td>
 <a href="#" class="linked" test-id='1' id='3'>Verify user can search product and validate checkout behavior and remove product</a>
 <div class="">
@@ -790,7 +853,7 @@ Caused by: java.lang.NullPointerException
 </tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>06:48:00 am</td>
+<td>13:27:54 pm</td>
 <td>
 <a href="#" class="linked" test-id='1' id='25'>Verify user can search product and validate checkout behavior and remove product</a>
 <div class="">
@@ -800,7 +863,7 @@ Caused by: java.lang.NullPointerException
 </tr>
 <tr class="tag-test-status" status="fail">
 <td><span class="badge log fail-bg">Fail</span></td>
-<td>06:48:00 am</td>
+<td>13:27:59 pm</td>
 <td>
 <a href="#" class="linked" test-id='1' id='47'>Verify user can search product and validate checkout behavior and remove product</a>
 <div class="">
@@ -825,13 +888,13 @@ Caused by: java.lang.NullPointerException
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Mar 13, 2026 06:47:59 am</h3>
+<h3>Mar 13, 2026 01:27:46 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Mar 13, 2026 06:48:00 am</h3>
+<h3>Mar 13, 2026 01:28:05 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
@@ -921,7 +984,7 @@ Caused by: java.lang.NullPointerException
 </div></div>
 <script>
 var timeline = {
-"Product search and checkout validation in Albertsons mobile application":0.517
+"Product search and checkout validation in Albertsons mobile application":18.71
 };
 </script>
 <div class="row">

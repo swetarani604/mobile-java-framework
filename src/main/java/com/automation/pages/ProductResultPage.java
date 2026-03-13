@@ -8,23 +8,25 @@ import com.automation.pageElements.ProductResultElements;
 public class ProductResultPage {
 
     MobileActions actions;
-
+    ProductResultElements productResultElement;
     public ProductResultPage(AppiumDriver driver){
-       // this.driver = DriverManager.getDriver();
+
         actions = new MobileActions(driver);
+        productResultElement = new ProductResultElements(driver);
     }
+
     public void verifyResultsText(String resultText) {
-        actions.waitForElement(ProductResultElements.resultText);
-        actions.assertElementText(ProductResultElements.resultText, resultText);
+        actions.waitForElement(productResultElement.resultText);
+        actions.assertElementText(productResultElement.resultText, resultText);
     }
 
     public void verifyProductList() {
-        actions.verifyMultipleElementsPresent(ProductResultElements.productName);
-        actions.verifyMultipleElementsPresent(ProductResultElements.productPrice);
+        actions.verifyMultipleElementsPresent(productResultElement.productName);
+        actions.verifyMultipleElementsPresent(productResultElement.productPrice);
 
     }
 
     public void openFirstProduct() {
-        actions.clickFirstElement(ProductResultElements.productName);
+        actions.clickFirstElement(productResultElement.productName);
     }
 }

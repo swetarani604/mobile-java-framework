@@ -7,31 +7,32 @@ import io.appium.java_client.AppiumDriver;
 
 public class CheckoutPage {
     MobileActions actions;
-
+    CheckoutElement checkoutElement;
     public CheckoutPage(AppiumDriver driver){
-        //this.driver = DriverManager.getDriver();
+
         actions = new MobileActions(driver);
+        checkoutElement = new CheckoutElement(driver);
     }
 
     public void verifyDeliverySlots() {
-        actions.assertElementVisible(CheckoutElement.deliverySlotBtn);
-        actions.clickElement(CheckoutElement.deliverySlotBtn);
+        actions.assertElementVisible(checkoutElement.deliverySlotBtn);
+        actions.clickElement(checkoutElement.deliverySlotBtn);
 
     }
 
     public void verifyFreshPassBanner() {
-        actions.assertElementVisible(CheckoutElement.fpBannertext);
-        actions.clickElement(CheckoutElement.closeBtn);
-        if(actions.isElementDisplayed(CheckoutElement.saveChangesPopUp)){
-            actions.clickElement(CheckoutElement.saveChangesYesbtn);
+        actions.assertElementVisible(checkoutElement.fpBannertext);
+        actions.clickElement(checkoutElement.closeBtn);
+        if(actions.isElementDisplayed(checkoutElement.saveChangesPopUp)){
+            actions.clickElement(checkoutElement.saveChangesYesbtn);
         }
-        if(actions.isElementDisplayed(CheckoutElement.DeliveryTimeIsUnavailable)){
-            actions.clickElement(CheckoutElement.DeliveryTimeIsUnavailableOkayBtn);
-            actions.clickElement(CheckoutElement.closeBtn);
+        if(actions.isElementDisplayed(checkoutElement.DeliveryTimeIsUnavailable)){
+            actions.clickElement(checkoutElement.DeliveryTimeIsUnavailableOkayBtn);
+            actions.clickElement(checkoutElement.closeBtn);
         }
     }
 
     public void verifyPlaceOrderButtonDisabled() {
-        actions.assertElementDisabled(CheckoutElement.placeOrderBtn);
+        actions.assertElementDisabled(checkoutElement.placeOrderBtn);
     }
 }

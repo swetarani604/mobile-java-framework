@@ -9,31 +9,32 @@ import org.openqa.selenium.By;
 public class CartPage {
 
     MobileActions actions;
-
+    CartElements cartElements;
     public CartPage(AppiumDriver driver){
-        //this.driver = DriverManager.getDriver();
+
        actions = new MobileActions(driver);
+       cartElements = new CartElements(driver);
     }
-    CartElements cartElements = new CartElements();
+
     public void openCart() {
-        actions.clickElement(CartElements.cartIcon);
-        actions.waitForElement(CartElements.checkoutBtn);
+        actions.clickElement(cartElements.cartIcon);
+        actions.waitForElement(cartElements.checkoutBtn);
 
     }
 
     public void verifyProductInCart(String product) {
-        actions.verifyMultipleElementsPresent(CartElements.cartProducts);
+        actions.verifyMultipleElementsPresent(cartElements.cartProducts);
     }
 
     public void proceedToCheckout() {
-        actions.clickElement(CartElements.checkoutBtn);
-        actions.assertElementVisible(CartElements.forgetSomethingTxt);
-        actions.clickElement(CartElements.continueToCheckoutBtn);
+        actions.clickElement(cartElements.checkoutBtn);
+        actions.assertElementVisible(cartElements.forgetSomethingTxt);
+        actions.clickElement(cartElements.continueToCheckoutBtn);
     }
 
     public void navigateBackToCart() {
         actions.navigateBack();
-        actions.waitForElement(CartElements.checkoutBtn);
+        actions.waitForElement(cartElements.checkoutBtn);
     }
 
     public void removeProductFromCart() {
@@ -42,6 +43,6 @@ public class CartPage {
     }
 
     public void verifyEmptyCartMessage(String emptyCartMessage) {
-        actions.assertElementText(CartElements.cartEmptyText,emptyCartMessage);
+        actions.assertElementText(cartElements.cartEmptyText,emptyCartMessage);
     }
 }

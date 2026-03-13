@@ -9,26 +9,30 @@ import io.appium.java_client.AppiumDriver;
 public class ProductDetailsPage {
 
     MobileActions actions;
+    ProductDetailsElement productDetailsElement;
+    HomeElement homeelement;
 
     public ProductDetailsPage( AppiumDriver driver){
-       // this.driver = DriverManager.getDriver();
+
        actions = new MobileActions(driver);
+       productDetailsElement = new ProductDetailsElement(driver);
+       homeelement = new HomeElement(driver);
     }
 
     public void verifyProductDetails() {
-        actions.assertElementVisible(ProductDetailsElement.productPrice);
-        actions.assertElementVisible(ProductDetailsElement.productName);
+        actions.assertElementVisible(productDetailsElement.productPrice);
+        actions.assertElementVisible(productDetailsElement.productName);
 
     }
 
     public void scrollThroughDetails() {
-        actions.scrollDownUntillElementVisible(ProductDetailsElement.productDetails);
+        actions.scrollDownUntillElementVisible(productDetailsElement.productDetails);
     }
 
     public void addToCart() {
-        actions.clickElement(ProductDetailsElement.addToCartBtn);
+        actions.clickElement(productDetailsElement.addToCartBtn);
         actions.navigateBack();
         actions.navigateBack();
-        actions.assertElementVisible(HomeElement.bannerSectionAtTop);
+        actions.assertElementVisible(homeelement.bannerSectionAtTop);
     }
 }

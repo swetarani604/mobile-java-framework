@@ -26,7 +26,7 @@ public class DriverFactory {
                 caps.setCapability("udid", "RZCW31RH0FW");
                 caps.setCapability("automationName", "UiAutomator2");
                 caps.setCapability("appPackage", "com.safeway.client.android.albertsons");
-                caps.setCapability("appActivity", "com.safeway.mcommerce.android.ui.MainActivity");
+                caps.setCapability("appActivity", "com.safeway.mcommerce.android.SplashScreen");
                 caps.setCapability("noReset", true);
 
                 driver = new AndroidDriver(
