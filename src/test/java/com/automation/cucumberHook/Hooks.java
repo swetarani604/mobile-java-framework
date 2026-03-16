@@ -24,34 +24,28 @@ public class Hooks {
 
         // Initialize driver for the given platform
         DriverFactory.initializeDriver(platform);
+            System.out.println("Driver initialized: " + DriverManager.getDriver());
     }
 
+
     @After
-    public void afterScenario(Scenario scenario) {
+    public void tearDown(Scenario scenario) {
 
         try {
 
-            if (scenario.isFailed()) {
+            if (scenario.isFailed() && DriverManager.getDriver() != null) {
 
                 String screenshotPath = MobileActions.captureScreenshot(scenario.getName());
-
                 byte[] fileContent = Files.readAllBytes(Paths.get(screenshotPath));
 
                 scenario.attach(fileContent, "image/png", "Failure Screenshot");
-
             }
 
         } catch (Exception e) {
 
             scenario.log("Screenshot capture failed: " + e.getMessage());
-
         }
-    }
 
-    @AfterSuite
-    public void tearDown () {
-
-        // Quit driver after scenario
         DriverManager.quitDriver();
     }
 }

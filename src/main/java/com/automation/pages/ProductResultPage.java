@@ -1,6 +1,5 @@
 package com.automation.pages;
 
-import com.automation.driver.DriverManager;
 import com.automation.utils.MobileActions;
 import io.appium.java_client.AppiumDriver;
 import com.automation.pageElements.ProductResultElements;
@@ -27,6 +26,7 @@ public class ProductResultPage {
     }
 
     public void openFirstProduct() {
+
         actions.clickFirstElement(productResultElement.productName);
     }
 }

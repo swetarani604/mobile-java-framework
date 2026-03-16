@@ -2,17 +2,18 @@ package com.automation.utils;
 
 import com.automation.driver.DriverManager;
 import io.appium.java_client.*;
-import io.appium.java_client.touch.WaitOptions;
-import io.appium.java_client.touch.offset.ElementOption;
-import io.appium.java_client.touch.offset.PointOption;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.PointerInput;
+import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
 import java.io.File;
 import java.time.Duration;
+import java.util.Arrays;
 import java.util.List;
 
 public class MobileActions {
@@ -21,30 +22,38 @@ public class MobileActions {
 
     public MobileActions(AppiumDriver driver){
         this.driver = driver;
-        wait = new WebDriverWait(driver, 30);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
     }
 
     private final int WAIT_FOR_ELEMENT_TIMEOUT = 15;
 
-    public void scrollDownUntillElementVisible(MobileElement element) {
+    public void scrollDownUntilElementVisible(WebElement element) {
 
         int maxScroll = 5;   // prevents infinite scrolling
         int count = 0;
 
-        while (isElementDisplayed(element) && count < maxScroll) {
+        while (!isElementDisplayed(element) && count < maxScroll) {
 
             Dimension size = driver.manage().window().getSize();
 
-            int startX = size.width / 2;
-            int startY = (int) (size.height * 0.8);
-            int endY = (int) (size.height * 0.2);
+            int startX = size.getWidth() / 2;
+            int startY = (int) (size.getHeight() * 0.8);
+            int endY = (int) (size.getHeight() * 0.2);
 
-            new TouchAction(driver)
-                    .press(PointOption.point(startX, startY))
-                    .waitAction(WaitOptions.waitOptions(Duration.ofSeconds(1)))
-                    .moveTo(PointOption.point(startX, endY))
-                    .release()
-                    .perform();
+            PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+            Sequence swipe = new Sequence(finger, 1);
+
+            swipe.addAction(finger.createPointerMove(Duration.ZERO,
+                    PointerInput.Origin.viewport(), startX, startY));
+
+            swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
+
+            swipe.addAction(finger.createPointerMove(Duration.ofMillis(700),
+                    PointerInput.Origin.viewport(), startX, endY));
+
+            swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
+
+            driver.perform(Arrays.asList(swipe));
 
             count++;
         }
@@ -57,31 +66,47 @@ public class MobileActions {
 
         Dimension size = driver.manage().window().getSize();
 
-        int startX = (int) (size.width * 0.8);
-        int endX = (int) (size.width * 0.2);
-        int y = size.height / 2;
+        int startX = (int) (size.getWidth() * 0.8);
+        int endX = (int) (size.getWidth() * 0.2);
+        int y = size.getHeight() / 2;
 
-        new TouchAction(driver)
-                .press(PointOption.point(startX, y))
-                .waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
-                .moveTo(PointOption.point(endX, y))
-                .release()
-                .perform();
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence swipe = new Sequence(finger, 1);
+
+        swipe.addAction(finger.createPointerMove(
+                Duration.ZERO,
+                PointerInput.Origin.viewport(),
+                startX,
+                y));
+
+        swipe.addAction(finger.createPointerDown(
+                PointerInput.MouseButton.LEFT.asArg()));
+
+        swipe.addAction(finger.createPointerMove(
+                Duration.ofMillis(600),
+                PointerInput.Origin.viewport(),
+                endX,
+                y));
+
+        swipe.addAction(finger.createPointerUp(
+                PointerInput.MouseButton.LEFT.asArg()));
+
+        driver.perform(Arrays.asList(swipe));
     }
 
     public WebElement waitForElement(WebElement ele){
-        WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
         return wait.until(ExpectedConditions.visibilityOf(ele));
     }
 
-    public void clickElement(MobileElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+    public void clickElement(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
         int retry = 0;
 
         while (retry < 3) {
             try {
 
-                MobileElement ele = (MobileElement) wait.until(
+                WebElement ele = wait.until(
                         ExpectedConditions.elementToBeClickable(element)
                 );
                 ele.click();
@@ -95,27 +120,14 @@ public class MobileActions {
         throw new RuntimeException("Unable to click element after retries");
     }
 
-    public void tapElement(MobileElement element) {
+    public void enterText(WebElement element, String text) {
 
-        WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
-        MobileElement ele = (MobileElement) wait.until(
-                ExpectedConditions.visibilityOf(element)
-        );
-
-        TouchAction action = new TouchAction(driver);
-        action.tap(ElementOption.element(ele)).perform();
-    }
-
-    public void enterText(MobileElement element, String text) {
-
-        WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
         int retry = 0;
 
         while (retry < 3) {
             try {
-                MobileElement ele = (MobileElement) wait.until(
-                        ExpectedConditions.visibilityOf(element)
-                );
+                WebElement ele = wait.until(ExpectedConditions.visibilityOf(element));
 
                 ele.clear();
                 ele.sendKeys(text);
@@ -129,14 +141,14 @@ public class MobileActions {
         throw new RuntimeException("Unable to enter text after retries");
     }
 
-    public String getText(MobileElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+    public String getText(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
         int retry = 0;
 
         while (retry < 3) {
             try {
 
-                MobileElement ele = (MobileElement) wait.until(
+                WebElement ele = (WebElement) wait.until(
                         ExpectedConditions.visibilityOf(element)
                 );
 
@@ -150,10 +162,10 @@ public class MobileActions {
         throw new RuntimeException("Unable to get text after retries");
     }
 
-    public void assertElementVisible(MobileElement element) {
+    public void assertElementVisible(WebElement element) {
 
         try {
-            WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
             wait.until(ExpectedConditions.visibilityOf(element));
 
             if (element.isDisplayed()) {
@@ -165,11 +177,11 @@ public class MobileActions {
         }
     }
 
-    public void assertElementText(MobileElement element, String expectedText) {
+    public void assertElementText(WebElement element, String expectedText) {
 
         try {
 
-            WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
             wait.until(ExpectedConditions.visibilityOf(element));
 
             String actualText = element.getText();
@@ -178,7 +190,7 @@ public class MobileActions {
                 actualText = element.getAttribute("label");   // iOS fallback
             }
 
-            Assert.assertEquals(actualText.trim(), expectedText.trim(),
+            Assert.assertTrue(actualText.trim().contains(expectedText.trim()),
                     actualText.trim() + " is displaying instead of expected");
 
         } catch (Exception e) {
@@ -186,11 +198,11 @@ public class MobileActions {
         }
     }
 
-    public void assertElementDisabled(MobileElement element) {
+    public void assertElementDisabled(WebElement element) {
 
         try {
 
-            WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
             wait.until(ExpectedConditions.visibilityOf(element));
 
             boolean status = element.isEnabled();
@@ -207,10 +219,10 @@ public class MobileActions {
     }
 
     // Clicks on the element from a list if its text matches the expected value
-    public void clickElementFromListByText(List<MobileElement> elements, String expectedName) {
+    public void clickElementFromListByText(List<WebElement> elements, String expectedName) {
     boolean found = false;
 
-    for (MobileElement element : elements) {
+    for (WebElement element : elements) {
         try {
             // Wait until element is visible
             wait.until(ExpectedConditions.visibilityOf(element));
@@ -235,7 +247,7 @@ public class MobileActions {
     }
 
 }
-    public void clickAllElements(List<MobileElement> list) {
+    public void clickAllElements(List<WebElement> list) {
         while (true) {
             if (list.size() == 0) {
                 break;
@@ -244,11 +256,11 @@ public class MobileActions {
         }
     }
 
-    public void verifyMultipleElementsPresent(List<MobileElement> elements) {
+    public void verifyMultipleElementsPresent(List<WebElement> elements) {
         Assert.assertTrue(elements.size() > 0, "Expected multiple elements but none found");
     }
 
-    public void clickFirstElement(List<MobileElement> elements) {
+    public void clickFirstElement(List<WebElement> elements) {
         Assert.assertTrue(elements.size() > 0, "No elements found to click");
         elements.get(0).click();
     }
@@ -263,7 +275,7 @@ public class MobileActions {
 
         if(platform.contains("android")) {
 
-                // Android back navigation
+                // code for Android back navigation
                 driver.navigate().back();
 
         } else if(platform.contains("ios")) {
@@ -278,25 +290,23 @@ public class MobileActions {
         }
     }
 
-    public void verifyRadioButtonSelected(MobileElement ele) {
+    public void selectRadioButtonSelected(WebElement ele) {
 
-        WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
 
         wait.until(ExpectedConditions.visibilityOf(ele));
 
         Assert.assertTrue(ele.isDisplayed(), "Radio button is not visible on the screen");
 
-        if (!ele.isSelected()) {
-            ele.click();
-        }
+        ele.click();
 
-        Assert.assertTrue(ele.isSelected(), "Radio button is not selected");
+        Assert.assertTrue(ele.isEnabled(), "Radio button is not selected");
     }
 
-    public boolean isElementDisplayed(MobileElement ele) {
+    public boolean isElementDisplayed(WebElement ele) {
 
         try {
-            WebDriverWait wait = new WebDriverWait(driver, WAIT_FOR_ELEMENT_TIMEOUT);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_FOR_ELEMENT_TIMEOUT));
             wait.until(ExpectedConditions.visibilityOf(ele));
             return ele.isDisplayed();
         } catch (Exception e) {

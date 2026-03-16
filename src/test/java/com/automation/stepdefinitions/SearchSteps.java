@@ -1,7 +1,6 @@
 package com.automation.stepdefinitions;
 
 import com.automation.driver.DriverManager;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
@@ -23,6 +22,18 @@ public class SearchSteps {
     SubstitutePage substitutePage;
     CheckoutPage checkoutPage;
 
+
+//    @Before
+//    public void initPages(){
+//
+//        homePage = new HomePage(DriverManager.getDriver());
+//        productResultPage = new ProductResultPage(DriverManager.getDriver());
+//        productDetailsPage = new ProductDetailsPage(DriverManager.getDriver());
+//        cartPage = new CartPage(DriverManager.getDriver());
+//        substitutePage = new SubstitutePage(DriverManager.getDriver());
+//        checkoutPage = new CheckoutPage(DriverManager.getDriver());
+//
+//    }
     public SearchSteps() {
 
         homePage = new HomePage(DriverManager.getDriver());
@@ -38,6 +49,7 @@ public class SearchSteps {
 
     @Given("the user lands on the home screen with search functionality available")
     public void verifyHomeScreen() {
+
         homePage.verifyHomeScreen();
     }
 
@@ -46,7 +58,9 @@ public class SearchSteps {
 
     @When("the user searches for {string} from the home screen")
     public void searchProduct(String product) {
+
         homePage.searchProduct(product);
+
     }
 
     @When("the user selects {string} from the search suggestions")
@@ -56,6 +70,7 @@ public class SearchSteps {
 
     @Then("the results page should display text containing {string}")
     public void verifyResultsText(String resultText) {
+
         productResultPage.verifyResultsText(resultText);
     }
 
@@ -90,8 +105,8 @@ public class SearchSteps {
     }
 
     @Then("the cart should display the added product")
-    public void verifyProductInCart(String product) {
-        cartPage.verifyProductInCart(product);
+    public void verifyProductInCart() {
+        cartPage.verifyProductInCart();
     }
 
     @When("the user adds a substitution for the selected product")

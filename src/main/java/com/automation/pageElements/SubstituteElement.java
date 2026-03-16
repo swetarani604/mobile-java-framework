@@ -1,10 +1,8 @@
 package com.automation.pageElements;
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidFindBy;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import io.appium.java_client.pagefactory.iOSXCUITFindBy;
+import io.appium.java_client.pagefactory.*;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
@@ -15,19 +13,22 @@ public class SubstituteElement {
     }
 
     @AndroidFindBy(xpath = "//*[contains(@content-desc,\"Substitute with best match Edit\")]/following-sibling::android.widget.Button")
-    @iOSXCUITFindBy(iOSClassChain = "")
-    public List<MobileElement> editBtn;
+    @iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'Edit'")
+    public List<WebElement> editBtn;
 
-    @AndroidFindBy(xpath = "//*[contains(@text,\"Substitute with best match\")]/..//android.widget.RadioButton")
-    @iOSXCUITFindBy(iOSClassChain = "")
-    public MobileElement substituteWithBestMatchRBtn;
+    @AndroidFindAll({
+            @AndroidBy(xpath = "//*[contains(@text,\"Substitute with best match\")]/..//android.widget.RadioButton"),
+            @AndroidBy(accessibility = "selected, Substitute with best match")
+    })
+    @iOSXCUITFindBy(accessibility = "substituteBestMatch")
+    public WebElement  substituteWithBestMatchRBtn;
 
     @AndroidFindBy(accessibility = "Set substitutions for all items, button")
-    @iOSXCUITFindBy(iOSClassChain = "")
-    public MobileElement setSubstitutionsForAllLink;
+    @iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'Substitutions'")
+    public WebElement  setSubstitutionsForAllLink;
 
     @AndroidFindBy(accessibility = "Save substitutions, button")
-    @iOSXCUITFindBy(iOSClassChain = "")
-    public MobileElement saveSubstitutionsBtn;
+    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeButton[`label CONTAINS 'Save'`]")
+    public WebElement  saveSubstitutionsBtn;
 
 }

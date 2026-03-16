@@ -1,6 +1,5 @@
 package com.automation.pages;
 
-import com.automation.driver.DriverManager;
 import com.automation.pageElements.SubstituteElement;
 import com.automation.utils.MobileActions;
 import com.automation.pageElements.CartElements;
@@ -19,7 +18,7 @@ public class SubstitutePage {
 
     public void addSubstitution() {
         actions.clickFirstElement(substituteElement.editBtn);
-        actions.verifyRadioButtonSelected(substituteElement.substituteWithBestMatchRBtn);
+        actions.selectRadioButtonSelected(substituteElement.substituteWithBestMatchRBtn);
         actions.clickElement(substituteElement.setSubstitutionsForAllLink);
         actions.clickElement(substituteElement.saveSubstitutionsBtn);
         actions.waitForElement(cartElements.checkoutBtn);

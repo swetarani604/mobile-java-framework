@@ -1,6 +1,5 @@
 package com.automation.pages;
 
-import com.automation.driver.DriverManager;
 import com.automation.utils.MobileActions;
 import com.automation.pageElements.CheckoutElement;
 import io.appium.java_client.AppiumDriver;
@@ -26,13 +25,11 @@ public class CheckoutPage {
         if(actions.isElementDisplayed(checkoutElement.saveChangesPopUp)){
             actions.clickElement(checkoutElement.saveChangesYesbtn);
         }
-        if(actions.isElementDisplayed(checkoutElement.DeliveryTimeIsUnavailable)){
-            actions.clickElement(checkoutElement.DeliveryTimeIsUnavailableOkayBtn);
-            actions.clickElement(checkoutElement.closeBtn);
-        }
+
     }
 
     public void verifyPlaceOrderButtonDisabled() {
+
         actions.assertElementDisabled(checkoutElement.placeOrderBtn);
     }
 }

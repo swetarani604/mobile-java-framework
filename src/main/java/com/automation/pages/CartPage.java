@@ -1,10 +1,8 @@
 package com.automation.pages;
 
-import com.automation.driver.DriverManager;
 import com.automation.utils.MobileActions;
 import com.automation.pageElements.CartElements;
 import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.By;
 
 public class CartPage {
 
@@ -22,7 +20,7 @@ public class CartPage {
 
     }
 
-    public void verifyProductInCart(String product) {
+    public void verifyProductInCart() {
         actions.verifyMultipleElementsPresent(cartElements.cartProducts);
     }
 
