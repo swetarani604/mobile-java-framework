@@ -22,18 +22,6 @@ public class SearchSteps {
     SubstitutePage substitutePage;
     CheckoutPage checkoutPage;
 
-
-//    @Before
-//    public void initPages(){
-//
-//        homePage = new HomePage(DriverManager.getDriver());
-//        productResultPage = new ProductResultPage(DriverManager.getDriver());
-//        productDetailsPage = new ProductDetailsPage(DriverManager.getDriver());
-//        cartPage = new CartPage(DriverManager.getDriver());
-//        substitutePage = new SubstitutePage(DriverManager.getDriver());
-//        checkoutPage = new CheckoutPage(DriverManager.getDriver());
-//
-//    }
     public SearchSteps() {
 
         homePage = new HomePage(DriverManager.getDriver());
