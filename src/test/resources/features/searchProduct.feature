@@ -16,9 +16,9 @@ Feature: Product search and checkout validation in Albertsons mobile application
 
     Examples:
       | product | resultText |
-      | bread   | bread      |
-      | milk    | milk       |
-      | eggs    | eggs       |
+      | Bread   | bread      |
+      | Milk    | milk       |
+      | Eggs    | eggs       |
 
   @androidApp
   Scenario: Verify cart checkout behavior and remove product

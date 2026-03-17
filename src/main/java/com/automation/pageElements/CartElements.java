@@ -1,6 +1,9 @@
 package com.automation.pageElements;
 
+import com.automation.driver.DriverManager;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -37,6 +40,22 @@ public class CartElements {
     @AndroidFindBy(xpath = "//*[contains(@text,\"Remove\")]/following-sibling::android.widget.Button")
     @iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'Remove'")
     public List<WebElement> removeBtn;
+
+    public By removeBtn() {
+
+        AppiumDriver driver = DriverManager.getDriver();
+
+        String platform = driver.getCapabilities()
+                .getCapability("platformName")
+                .toString()
+                .toLowerCase();
+
+        if (platform.contains("android")) {
+            return AppiumBy.xpath("//*[contains(@text,\"Remove\")]/following-sibling::android.widget.Button");
+        } else {
+            return AppiumBy.iOSNsPredicateString("name CONTAINS 'cart'");
+        }
+    }
 
     @AndroidFindBy(xpath = "//*[contains(@text,'Your cart is')]")
     @iOSXCUITFindBy(iOSNsPredicate = "label CONTAINS 'empty cart'")

@@ -3,6 +3,7 @@ package com.automation.pages;
 import com.automation.utils.MobileActions;
 import io.appium.java_client.AppiumDriver;
 import com.automation.pageElements.HomeElement;
+import org.openqa.selenium.By;
 
 public class HomePage{
     MobileActions actions;
@@ -25,7 +26,7 @@ public class HomePage{
     }
 
     public void selectSearchSuggestion(String product) {
-        actions.clickElementFromListByText(homeelement.relatedProductList,product);
-
+        By productLocator = homeelement.getProductLocator(product);
+        actions.clickDynamicElement(productLocator);
     }
 }

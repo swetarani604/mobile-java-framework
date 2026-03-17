@@ -218,43 +218,23 @@ public class MobileActions {
         }
     }
 
-    // Clicks on the element from a list if its text matches the expected value
-    public void clickElementFromListByText(List<WebElement> elements, String expectedName) {
-    boolean found = false;
-
-    for (WebElement element : elements) {
-        try {
-            // Wait until element is visible
-            wait.until(ExpectedConditions.visibilityOf(element));
-
-            String text = element.getText();
-            if (text == null || text.isEmpty()) {
-                text = element.getAttribute("label"); // iOS purpose
-            }
-
-            if (text.trim().equalsIgnoreCase(expectedName.trim())) {
-                element.click();
-                found = true;
-                Assert.assertTrue(true,expectedName.trim()+"is clicked");
-                break;
-            }
-
-        } catch (StaleElementReferenceException e) {
-
-        } catch (Exception e) {
-
-        }
+    // Clicks on the dynamic locator element
+    public void clickDynamicElement(By locator) {
+        driver.findElement(locator).click();
     }
 
-}
-    public void clickAllElements(List<WebElement> list) {
-        while (true) {
-            if (list.size() == 0) {
-                break;
-            }
+
+    public void clickAllElements(By locator) {
+
+        List<WebElement> list = driver.findElements(locator);
+        while (!list.isEmpty()) {
+
             list.get(0).click();
+            list = driver.findElements(locator);
         }
     }
+
+
 
     public void verifyMultipleElementsPresent(List<WebElement> elements) {
         Assert.assertTrue(elements.size() > 0, "Expected multiple elements but none found");

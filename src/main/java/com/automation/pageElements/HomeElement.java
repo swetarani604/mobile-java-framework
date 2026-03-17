@@ -1,13 +1,14 @@
 package com.automation.pageElements;
 
+import com.automation.driver.DriverManager;
+import io.appium.java_client.AppiumBy;
 import io.appium.java_client.AppiumDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 import org.openqa.selenium.support.PageFactory;
-
-import java.util.List;
 
 public class HomeElement {
     public HomeElement(AppiumDriver driver){
@@ -26,8 +27,19 @@ public class HomeElement {
     @iOSXCUITFindBy(iOSNsPredicate = "type == 'XCUIElementTypeSearchField'")
     public WebElement searchEntertxt;
 
-    @AndroidFindBy(xpath = "//*[contains(@resource-id,\"cv_suggestions\")]/android.view.View/android.view.View/android.view.View")
-    @iOSXCUITFindBy(iOSClassChain = "**/XCUIElementTypeCollectionView/**/XCUIElementTypeCell")
-    public List<WebElement> relatedProductList;
+    public By getProductLocator(String productName) {
+
+        AppiumDriver driver = DriverManager.getDriver();
+
+        String platform = driver.getCapabilities()
+                .getCapability("platformName")
+                .toString()
+                .toLowerCase();
+        if (platform.contains("android")) {
+            return AppiumBy.xpath(String.format("//android.widget.TextView[@text='%s']", productName));
+        } else {
+            return AppiumBy.iOSNsPredicateString(String.format("name == '%s'", productName));
+        }
+    }
 
 }

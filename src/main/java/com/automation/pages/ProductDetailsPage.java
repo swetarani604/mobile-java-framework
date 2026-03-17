@@ -16,6 +16,7 @@ public class ProductDetailsPage {
     }
 
     public void verifyProductDetails() {
+        actions.waitForElement(productDetailsElement.productPrice);
         actions.assertElementVisible(productDetailsElement.productPrice);
         actions.assertElementVisible(productDetailsElement.productName);
 
@@ -30,5 +31,6 @@ public class ProductDetailsPage {
         actions.navigateBack();
         actions.navigateBack();
         actions.navigateBack();
+
     }
 }

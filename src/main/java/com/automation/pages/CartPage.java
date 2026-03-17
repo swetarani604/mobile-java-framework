@@ -4,6 +4,8 @@ import com.automation.utils.MobileActions;
 import com.automation.pageElements.CartElements;
 import io.appium.java_client.AppiumDriver;
 
+import java.util.List;
+
 public class CartPage {
 
     MobileActions actions;
@@ -37,7 +39,7 @@ public class CartPage {
 
     public void removeProductFromCart() {
 
-        actions.clickAllElements(cartElements.removeBtn);
+        actions.clickAllElements(cartElements.removeBtn());
     }
 
     public void verifyEmptyCartMessage(String emptyCartMessage) {
